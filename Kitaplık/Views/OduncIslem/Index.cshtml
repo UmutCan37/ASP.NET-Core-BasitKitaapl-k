@@ -1,0 +1,65 @@
+﻿@model List<OduncIslem>
+@{
+	ViewData["Title"] = "Index";
+	Layout = "~/Views/Default/Index.cshtml";
+	int count = 0;
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<br />
+		<h4 class="page-title">Kitap Ödünç Verme</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Kitap Ödünç Verme Listesi</div>
+					</div>
+					<div class="card-body">
+						<div class="card-sub">
+							Kitap Ödünç Verme ile ilgili işlemleri aşağıdaki panelden yapabilirsiniz.
+						</div>
+						<table class="table mt-3">
+							<thead>
+								<tr>
+									<th scope="col">#</th>
+									<th scope="col">Kitap Adı</th>
+									<th scope="col">Üye Adı</th>
+									<th scope="col">Personel Adi</th>
+									<th scope="col">Verme Traihi</th>
+									<th scope="col">Alma Tarihi</th>
+									<th scope="col">Durum</th>
+									<th scope="col">Sil</th>
+									<th scope="col">Güncelle</th>
+								</tr>
+							</thead>
+							<tbody>
+								@foreach (var item in Model)
+								{
+									count++;
+									<tr>
+										<td>@count</td>
+
+										<td>@item.Kitap.Baslik</td>
+										<td>@item.Uye.AdSoyad</td>
+										<td>@item.Personel.AdSoyad</td>
+										<td>@item.OduncAlmaTarihi</td>
+										<td>@item.IadeTarihi</td>
+										<td>@item.Durum</td>
+										
+
+
+										<td><a href="/OduncIslem/DeleteOduncIslem/@item.OduncIslemId" class="btn btn-danger">Sil</a></td>
+										<td><a href="/OduncIslem/UpdateOduncIslem/@item.OduncIslemId" class="btn btn-success">Güncelle</a></td>
+									</tr>
+								}
+							</tbody>
+						</table>
+						<a href="/OduncIslem/CreateOduncIslem/" class="btn btn-primary">Yeni OduncIslem Girişi</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+

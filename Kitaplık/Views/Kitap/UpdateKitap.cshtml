@@ -1,0 +1,55 @@
+﻿@model Kitap
+@{
+    ViewData["Title"] = "UpdateKitap";
+    Layout = "~/Views/Default/Index.cshtml";
+}
+
+<div class="content">
+	<div class="container-fluid">
+		<h4 class="page-title">Kitap</h4>
+		<div class="row">
+			<div class="col-md-12">
+				<div class="card">
+					<div class="card-header">
+						<div class="card-title">Kitap Güncelleme Sayfası</div>
+					</div>
+					<div class="card-body">
+						<form method="post">
+							<input type="hidden" asp-for="KitapId" />
+							<label>Baslık</label>
+							<input type="text" asp-for="Baslik" class="form-control" />
+							<br />
+							<label>Yazar</label>
+							<input type="text" asp-for="Yazar" class="form-control" />
+							<br />
+							<label>YayinEvi</label>
+							<input type="text" asp-for="Yayinevi" class="form-control" />
+							<br />
+							<label>Seri Numarası</label>
+							<input type="text" asp-for="ISBN" class="form-control" />
+							<br />
+							<label>Basım Yılı</label>
+							<input type="text" asp-for="BasimYili" class="form-control" />
+							<br />
+							<label>Adet</label>
+							<input type="text" asp-for="Adet" class="form-control" />
+							<br />
+							<label>Durum</label>
+							<input type="text" asp-for="Durum" class="form-control" />
+							<br />
+							@Html.LabelFor(x => x.Kategori)
+							@Html.DropDownListFor(x => x.KategoriId, (List<SelectListItem>)ViewBag.dgr1, new
+								{ @class = "form-control" })
+							<br />
+
+
+
+							<button class="btn btn-primary">Kitap Güncelle</button>
+						</form>
+
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
